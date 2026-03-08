@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#FAF7F4"/>
+  <circle cx="400" cy="260" r="130" fill="#B8913A" opacity="0.15"/>
+  <circle cx="600" cy="150" r="60" fill="#D4AF6A" opacity="0.12"/>
+  <text x="400" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#8B5E3C" opacity="0.4">Menopausa</text>
+</svg>
