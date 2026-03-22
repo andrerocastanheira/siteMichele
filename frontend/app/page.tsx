@@ -38,7 +38,7 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{ background: "rgba(44, 26, 14, 0.55)" }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center h-full pt-24 sm:pt-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center h-full">
           <motion.p
             {...fadeUpAnimate(0)}
             className="italic tracking-widest text-xs mb-3 sm:mb-4"
