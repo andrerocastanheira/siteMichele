@@ -13,10 +13,16 @@ import {
   Baby,
   Shield,
   Sun,
+  Leaf,
+  Compass,
+  Stethoscope,
+  Users,
+  Brain,
   ChevronDown,
+  MessageCircle,
 } from "lucide-react";
 import type { LucideProps } from "lucide-react";
-import { servicos } from "@/lib/data";
+import { servicos, contacto } from "@/lib/data";
 import type { Servico } from "@/lib/data";
 import { fadeUp, fadeUpAnimate } from "@/lib/animations";
 
@@ -28,7 +34,12 @@ type IconKey =
   | "Sparkles"
   | "Baby"
   | "Shield"
-  | "Sun";
+  | "Sun"
+  | "Leaf"
+  | "Compass"
+  | "Stethoscope"
+  | "Users"
+  | "Brain";
 
 const iconMap: Record<IconKey, React.ComponentType<LucideProps>> = {
   Activity,
@@ -39,6 +50,11 @@ const iconMap: Record<IconKey, React.ComponentType<LucideProps>> = {
   Baby,
   Shield,
   Sun,
+  Leaf,
+  Compass,
+  Stethoscope,
+  Users,
+  Brain,
 };
 
 interface AccordionCardProps {
@@ -99,6 +115,34 @@ function AccordionCard({ servico, index, openId, setOpenId }: AccordionCardProps
   );
 }
 
+const categorias = [
+  {
+    titulo: "Fisioterapia Pélvica",
+    descricao: "Avaliação e tratamento especializado do pavimento pélvico em cada fase da vida.",
+    ids: [
+      "avaliacao-pavimento",
+      "fisioterapia-gravidez",
+      "recuperacao-pos-parto",
+      "incontinencia-urinaria",
+      "disfuncao-sexual",
+      "preparacao-parto",
+      "endometriose-dor-pelvica",
+      "menopausa-perimenopausa",
+      "aulas-pavimento-pelvico",
+    ],
+  },
+  {
+    titulo: "Nutrição & Medicina Integrativa",
+    descricao: "Uma abordagem que trata a Mulher no seu todo — corpo, ciclo hormonal e bem-estar.",
+    ids: ["nutricao-integrativa", "medicina-integrativa"],
+  },
+  {
+    titulo: "Bem-estar Mental & Emocional",
+    descricao: "Ferramentas práticas para o equilíbrio emocional, o autoconhecimento e o crescimento pessoal.",
+    ids: ["coaching-desenvolvimento-pessoal", "inteligencia-emocional"],
+  },
+];
+
 export default function ServicosPage() {
   const [openId, setOpenId] = useState<string | null>(null);
 
@@ -140,25 +184,41 @@ export default function ServicosPage() {
             className="text-lg max-w-xl mt-4"
             style={{ color: "rgba(255,255,255,0.75)" }}
           >
-            Uma abordagem completa e personalizada para cada condição.
+            Fisioterapia pélvica, nutrição, coaching e medicina integrativa — a saúde da Mulher tratada por completo.
           </motion.p>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services por categoria */}
       <section style={{ background: "var(--color-bg)" }} className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            {servicos.map((servico, i) => (
-              <AccordionCard
-                key={servico.id}
-                servico={servico}
-                index={i}
-                openId={openId}
-                setOpenId={setOpenId}
-              />
-            ))}
-          </div>
+        <div className="max-w-7xl mx-auto px-6 flex flex-col gap-20">
+          {categorias.map((cat) => {
+            const items = servicos.filter((s) => cat.ids.includes(s.id));
+            return (
+              <div key={cat.titulo}>
+                <motion.div {...fadeUp(0)} className="mb-8">
+                  <p className="text-xs tracking-widest uppercase mb-2" style={{ color: "var(--color-gold)" }}>
+                    {cat.titulo}
+                  </p>
+                  <h2 className="font-cormorant text-3xl mb-2" style={{ color: "var(--color-dark)", fontSize: "clamp(26px, 3vw, 36px)" }}>
+                    {cat.descricao}
+                  </h2>
+                  <div className="h-px w-16 mt-4" style={{ background: "var(--color-gold)" }} />
+                </motion.div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {items.map((servico, i) => (
+                    <AccordionCard
+                      key={servico.id}
+                      servico={servico}
+                      index={i}
+                      openId={openId}
+                      setOpenId={setOpenId}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -175,15 +235,18 @@ export default function ServicosPage() {
             className="mb-8"
             style={{ color: "var(--color-muted)" }}
           >
-            Marque a sua primeira consulta e dê o primeiro passo.
+            Fale connosco e descubra como podemos acompanhá-la.
           </p>
-          <Link
-            href="/agendamento"
-            className="inline-block px-8 py-4 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
+          <a
+            href={`https://wa.me/${contacto.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
             style={{ background: "var(--color-primary)" }}
           >
-            Marcar Consulta
-          </Link>
+            <MessageCircle size={18} />
+            Fale Connosco
+          </a>
         </div>
       </section>
     </main>
