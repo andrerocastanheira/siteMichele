@@ -34,8 +34,9 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className="fixed top-8 left-0 right-0 z-50"
+      className="fixed left-0 right-0 z-50"
       animate={{
+        top: scrolled ? 0 : 32,
         backgroundColor: isSolid ? "rgba(250,247,244,0.97)" : "rgba(250,247,244,0)",
         boxShadow: isSolid ? "0 1px 24px rgba(44,26,14,0.08)" : "none",
       }}
