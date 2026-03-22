@@ -36,7 +36,11 @@ export default function HomePage() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: "rgba(44, 26, 14, 0.55)" }}
+          style={{ background: "rgba(44, 26, 14, 0.62)" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, rgba(44,26,14,0.45) 0%, transparent 65%)" }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center h-full">
           <motion.p
