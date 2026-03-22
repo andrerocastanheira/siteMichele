@@ -38,7 +38,7 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{ background: "rgba(44, 26, 14, 0.55)" }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-start sm:justify-center h-full pt-32 sm:pt-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center h-full">
           <motion.p
             {...fadeUpAnimate(0)}
             className="italic tracking-widest text-xs mb-3 sm:mb-4"
@@ -49,13 +49,13 @@ export default function HomePage() {
           <motion.h1
             {...fadeUpAnimate(1)}
             className="font-cormorant text-white max-w-3xl mb-3 sm:mb-4"
-            style={{ fontSize: "clamp(24px, 4.5vw, 60px)", lineHeight: 1.15, fontWeight: 300 }}
+            style={{ fontSize: "clamp(32px, 4.5vw, 60px)", lineHeight: 1.15, fontWeight: 300 }}
           >
             Muitas Mulheres vivem anos com sintomas que não deveriam ser considerados normais.
           </motion.h1>
           <motion.p
             {...fadeUpAnimate(2)}
-            className="text-sm sm:text-base max-w-xl mb-4 sm:mb-6"
+            className="text-base max-w-xl mb-4 sm:mb-6"
             style={{ color: "rgba(255,255,255,0.75)" }}
           >
             Na WOMAN, olhamos para a saúde da Mulher como um todo — corpo, mente e emoção.
