@@ -51,7 +51,7 @@ export default function HomePage() {
             className="font-cormorant text-white max-w-3xl mb-3 sm:mb-4"
             style={{ fontSize: "clamp(24px, 4.5vw, 60px)", lineHeight: 1.15, fontWeight: 300 }}
           >
-            Muitas mulheres vivem anos com sintomas que não deveriam ser considerados normais.
+            Muitas Mulheres vivem anos com sintomas que não deveriam ser considerados normais.
           </motion.h1>
           <motion.p
             {...fadeUpAnimate(2)}
