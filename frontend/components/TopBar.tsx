@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const messages = [
-  "✦ Consultas presenciais em Lisboa",
-  "✦ Fisioterapia Pélvica especializada para a mulher",
-  "✦ Marque a sua consulta online — rápido e sem esperas",
+  "✦ Fisioterapia Pélvica · Nutrição · Coaching · Medicina Integrativa",
+  "✦ Saúde integrativa da Mulher — corpo, mente e emoção",
+  "✦ Acompanhamento especializado em cada fase da sua vida",
 ];
 
 export default function TopBar() {
@@ -29,17 +29,17 @@ export default function TopBar() {
             className="inline-flex items-center text-white px-12"
             style={{ fontSize: 11, letterSpacing: "0.05em" }}
           >
-            {msg.includes("Marque") ? (
+            {msg.includes("cada fase") ? (
               <>
                 ✦{" "}
                 <Link
-                  href="/agendamento"
+                  href="/contactos"
                   className="ml-1 underline underline-offset-2"
                   style={{ color: "var(--color-gold-light)" }}
                 >
-                  Marque a sua consulta online
+                  Acompanhamento especializado
                 </Link>
-                {" "}— rápido e sem esperas
+                {" "}em cada fase da sua vida
               </>
             ) : (
               <span style={{ color: "rgba(255,255,255,0.85)" }}>{msg}</span>

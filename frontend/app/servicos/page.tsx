@@ -191,19 +191,16 @@ export default function ServicosPage() {
 
       {/* Services por categoria */}
       <section style={{ background: "var(--color-bg)" }} className="py-24">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col gap-20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col gap-14">
           {categorias.map((cat) => {
             const items = servicos.filter((s) => cat.ids.includes(s.id));
             return (
               <div key={cat.titulo}>
-                <motion.div {...fadeUp(0)} className="mb-8">
-                  <p className="text-xs tracking-widest uppercase mb-2" style={{ color: "var(--color-gold)" }}>
+                <motion.div {...fadeUp(0)} className="mb-6 flex items-center gap-4">
+                  <div className="h-px w-8 flex-shrink-0" style={{ background: "var(--color-gold)" }} />
+                  <p className="text-xs tracking-widest uppercase" style={{ color: "var(--color-gold)" }}>
                     {cat.titulo}
                   </p>
-                  <h2 className="font-cormorant text-3xl mb-2" style={{ color: "var(--color-dark)", fontSize: "clamp(26px, 3vw, 36px)" }}>
-                    {cat.descricao}
-                  </h2>
-                  <div className="h-px w-16 mt-4" style={{ background: "var(--color-gold)" }} />
                 </motion.div>
                 <div className="grid md:grid-cols-2 gap-6">
                   {items.map((servico, i) => (

@@ -73,11 +73,52 @@ export const servicos: Servico[] = [
     descricaoLonga:
       "Tratamento das alterações do pavimento pélvico associadas à menopausa, incluindo atrofia geniturinária, prolapso de órgãos pélvicos e incontinência. Abordagem integrativa que respeita cada etapa da vida da mulher.",
   },
+  {
+    id: "nutricao-integrativa",
+    icone: "Leaf",
+    titulo: "Nutrição Integrativa",
+    descricaoCurta: "A alimentação como pilar da saúde feminina em cada fase da vida.",
+    descricaoLonga:
+      "Acompanhamento nutricional personalizado que considera o ciclo hormonal, as fases da vida e o bem-estar emocional da mulher. Uma abordagem que vai além das calorias — alimentar o corpo, a mente e as emoções.",
+  },
+  {
+    id: "coaching-desenvolvimento-pessoal",
+    icone: "Compass",
+    titulo: "Coaching e Desenvolvimento Pessoal",
+    descricaoCurta: "Acompanhamento do crescimento emocional e pessoal da Mulher.",
+    descricaoLonga:
+      "Processo de coaching estruturado para apoiar a mulher a identificar os seus valores, superar bloqueios emocionais e construir uma vida alinhada com o seu bem-estar. Ferramentas práticas para o autoconhecimento e crescimento pessoal.",
+  },
+  {
+    id: "medicina-integrativa",
+    icone: "Stethoscope",
+    titulo: "Medicina Integrativa",
+    descricaoCurta: "Uma visão completa da saúde que une o convencional e o integrativo.",
+    descricaoLonga:
+      "Abordagem que combina medicina convencional com terapias complementares, tratando a mulher na sua totalidade — física, mental e emocional. Diagnóstico e acompanhamento personalizado que respeita a singularidade de cada paciente.",
+  },
+  {
+    id: "aulas-pavimento-pelvico",
+    icone: "Users",
+    titulo: "Aulas de Pavimento Pélvico",
+    descricaoCurta: "Consciência, fortalecimento e cuidado do pavimento pélvico em grupo.",
+    descricaoLonga:
+      "Aulas de grupo dedicadas ao conhecimento e cuidado do pavimento pélvico. Exercícios de consciência corporal, fortalecimento e relaxamento, adaptados às diferentes fases da vida da mulher. Um espaço seguro para aprender, partilhar e cuidar de si.",
+  },
+  {
+    id: "inteligencia-emocional",
+    icone: "Brain",
+    titulo: "Inteligência Emocional",
+    descricaoCurta: "Ferramentas práticas para a gestão emocional e o bem-estar mental.",
+    descricaoLonga:
+      "Acompanhamento especializado no desenvolvimento da inteligência emocional — reconhecer, compreender e gerir emoções para uma vida mais equilibrada e saudável. Técnicas de mindfulness, regulação emocional e gestão do stress adaptadas à realidade da Mulher.",
+  },
 ];
 
 // ─── Serviços (preview para homepage) ────────────────────────────────────────
 
-export const servicosPreview = servicos.slice(0, 3);
+// Show a cross-section: pélvica, nutrição, coaching
+export const servicosPreview = [servicos[0], servicos[8], servicos[9]];
 
 // ─── Para Quem É ─────────────────────────────────────────────────────────────
 
@@ -91,6 +132,21 @@ export interface ParaSi {
 }
 
 export const paraSi: ParaSi[] = [
+  {
+    id: "adolescencia",
+    titulo: "Na Adolescência",
+    subtitulo: "Um início consciente para uma saúde feminina plena",
+    imagem: "/images/adolescencia.svg",
+    descricao:
+      "A adolescência marca o início da vida hormonal da mulher. Acompanhar esta fase com atenção e cuidado é o primeiro passo para uma saúde pélvica e emocional sólida ao longo de toda a vida.",
+    sintomas: [
+      "Dismenorreia (cólicas menstruais intensas)",
+      "Irregularidades do ciclo menstrual",
+      "Dor pélvica recorrente",
+      "Educação e consciência corporal",
+      "Prevenção e saúde pélvica desde cedo",
+    ],
+  },
   {
     id: "gravidez",
     titulo: "Na Gravidez",
@@ -251,6 +307,11 @@ export const motivosConsulta = [
   "Disfunção Sexual",
   "Endometriose",
   "Preparação para o Parto",
+  "Nutrição",
+  "Coaching e Desenvolvimento Pessoal",
+  "Medicina Integrativa",
+  "Inteligência Emocional",
+  "Aulas de Pavimento Pélvico",
   "Outro",
 ];
 
