@@ -38,7 +38,7 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{ background: "rgba(44, 26, 14, 0.55)" }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center h-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-start sm:justify-center h-full pt-32 sm:pt-0">
           <motion.p
             {...fadeUpAnimate(0)}
             className="italic tracking-widest text-xs mb-3 sm:mb-4"
@@ -65,16 +65,10 @@ export default function HomePage() {
             {...fadeUpAnimate(3)}
             className="flex flex-wrap gap-2"
           >
-            {[
-              { label: "Saúde Pélvica", mobile: true },
-              { label: "Nutrição", mobile: true },
-              { label: "Coaching", mobile: true },
-              { label: "Inteligência Emocional", mobile: false },
-              { label: "Medicina Integrativa", mobile: false },
-            ].map(({ label, mobile }) => (
+            {["Saúde Pélvica", "Nutrição", "Coaching", "Inteligência Emocional", "Medicina Integrativa"].map((label) => (
               <span
                 key={label}
-                className={`text-xs px-3 py-1.5 rounded-full border${mobile ? "" : " hidden sm:inline"}`}
+                className="text-xs px-3 py-1.5 rounded-full border"
                 style={{
                   borderColor: "rgba(212,175,106,0.7)",
                   color: "var(--color-gold-light)",
@@ -85,7 +79,8 @@ export default function HomePage() {
               >
                 {label}
               </span>
-            ))}
+            ))
+            }
           </motion.div>
         </div>
       </section>

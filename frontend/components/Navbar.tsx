@@ -51,8 +51,8 @@ export default function Navbar() {
             WOMAN
           </span>
           <span
-            className="text-xs tracking-widest font-light"
-            style={{ fontSize: 9, color: logoSubColor, letterSpacing: "0.14em", fontFamily: "DM Sans, sans-serif" }}
+            className="text-xs font-light whitespace-nowrap"
+            style={{ fontSize: 11, color: logoSubColor, letterSpacing: "0.1em", fontFamily: "DM Sans, sans-serif" }}
           >
             INSTITUTO DE SAÚDE INTEGRATIVA
           </span>
@@ -86,11 +86,11 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/agendamento"
+              href="/contactos"
               className="px-5 py-2.5 rounded-md text-sm font-semibold text-white"
               style={{ background: "var(--color-primary)", fontFamily: "DM Sans, sans-serif", fontSize: 13 }}
             >
-              Marcar Consulta
+              Fale Connosco
             </Link>
           </motion.div>
         </div>
@@ -137,12 +137,12 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/agendamento"
+                href="/contactos"
                 onClick={() => setMenuOpen(false)}
                 className="mt-2 px-4 py-3 rounded-md text-sm font-semibold text-white text-center"
                 style={{ background: "var(--color-primary)", fontFamily: "DM Sans, sans-serif" }}
               >
-                Marcar Consulta
+                Fale Connosco
               </Link>
             </nav>
           </motion.div>
