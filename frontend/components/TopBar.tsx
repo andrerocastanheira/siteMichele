@@ -34,12 +34,12 @@ export default function TopBar() {
                 ✦{" "}
                 <Link
                   href="/contactos"
-                  className="ml-1 underline underline-offset-2"
+                  className="ml-1 mr-1 underline underline-offset-2"
                   style={{ color: "var(--color-gold-light)" }}
                 >
                   Acompanhamento especializado
                 </Link>
-                {" "}em cada fase da sua vida
+                em cada fase da sua vida
               </>
             ) : (
               <span style={{ color: "rgba(255,255,255,0.85)" }}>{msg}</span>

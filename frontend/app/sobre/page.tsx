@@ -64,13 +64,42 @@ export default function SobrePage() {
 
           {/* Right */}
           <motion.div {...fadeUpAnimate(1)}>
-            <Image
-              src="/images/doutora-coluna.png"
-              alt="Dra. Michele Carvalho Colchete"
-              width={500}
-              height={620}
-              className="object-cover rounded-2xl w-full"
-            />
+            <div className="relative">
+              {/* Decorative gold frame offset */}
+              <div
+                className="absolute rounded-2xl"
+                style={{
+                  inset: 0,
+                  top: 16,
+                  left: 16,
+                  background: "var(--color-gold)",
+                  opacity: 0.18,
+                  zIndex: 0,
+                }}
+              />
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  aspectRatio: "4/5",
+                  maxHeight: 560,
+                  boxShadow: "0 32px 80px rgba(44,26,14,0.18)",
+                  zIndex: 1,
+                }}
+              >
+                <Image
+                  src="/images/doutora-coluna.png"
+                  alt="Dra. Michele Carvalho Colchete"
+                  fill
+                  priority
+                  className="object-cover object-top"
+                />
+                {/* Gold accent line */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-1"
+                  style={{ background: "var(--color-gold)" }}
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -148,10 +177,9 @@ export default function SobrePage() {
       {/* Numbers section */}
       <section style={{ background: "var(--color-primary)" }} className="py-20">
         <div className="max-w-3xl mx-auto px-6">
-          <motion.div {...fadeUp()}>
-            <div className="grid grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
               {metricas.map((m, i) => (
-                <div key={i}>
+                <motion.div key={i} {...fadeUp(i)}>
                   <h3
                     className="font-cormorant text-white mb-2"
                     style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
@@ -164,10 +192,9 @@ export default function SobrePage() {
                   >
                     {m.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </motion.div>
         </div>
       </section>
     </main>

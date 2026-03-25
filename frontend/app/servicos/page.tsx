@@ -78,7 +78,10 @@ function AccordionCard({ servico, index, openId, setOpenId }: AccordionCardProps
       style={{ borderColor: "var(--color-border)" }}
     >
       <button
-        className="w-full flex items-center gap-4 p-6 text-left"
+        className="w-full flex items-center gap-4 p-6 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+        style={{ ["--tw-ring-color" as string]: "var(--color-gold)" }}
+        aria-expanded={isOpen}
+        aria-controls={`accordion-body-${cardId}`}
         onClick={() => setOpenId(isOpen ? null : cardId)}
       >
         <IconComponent size={24} style={{ color: "var(--color-gold)" }} />
@@ -96,6 +99,8 @@ function AccordionCard({ servico, index, openId, setOpenId }: AccordionCardProps
         {isOpen && (
           <motion.div
             key="body"
+            id={`accordion-body-${cardId}`}
+            role="region"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -150,42 +155,33 @@ export default function ServicosPage() {
     <main>
       {/* Hero */}
       <section
-        className="relative overflow-hidden"
-        style={{ height: "60vh", minHeight: 480 }}
+        style={{ background: "var(--color-surface)", paddingTop: 96, paddingBottom: 56 }}
+        className="text-center"
       >
-        <Image
-          src="/images/sala-tratamento.svg"
-          alt="Sala de tratamento"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "rgba(44, 26, 14, 0.65)" }}
-        />
-        <div className="relative z-10 pt-32 pb-16 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
-          <motion.p
-            {...fadeUpAnimate(0)}
-            className="text-xs tracking-widest mb-3"
-            style={{ color: "var(--color-gold-light)" }}
-          >
-            OS NOSSOS SERVIÇOS
-          </motion.p>
-          <motion.h1
-            {...fadeUpAnimate(1)}
-            className="font-cormorant text-white"
-            style={{ fontSize: "clamp(48px, 6vw, 80px)" }}
-          >
-            Tratamentos Especializados
-          </motion.h1>
-          <motion.p
-            {...fadeUpAnimate(2)}
-            className="text-lg max-w-xl mt-4"
-            style={{ color: "rgba(255,255,255,0.75)" }}
-          >
-            Fisioterapia pélvica, nutrição, coaching e medicina integrativa — a saúde da Mulher tratada por completo.
-          </motion.p>
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.div {...fadeUp()}>
+            <p
+              className="text-xs tracking-widest uppercase mb-3"
+              style={{ color: "var(--color-gold)" }}
+            >
+              Os nossos serviços
+            </p>
+            <h1
+              className="font-cormorant mb-4"
+              style={{ fontSize: "clamp(40px,5vw,68px)", color: "var(--color-dark)" }}
+            >
+              Tratamentos Especializados
+            </h1>
+            <div
+              style={{ width: 56, height: 2, background: "var(--color-gold)", margin: "0 auto 20px" }}
+            />
+            <p
+              className="text-lg leading-relaxed"
+              style={{ color: "var(--color-muted)", maxWidth: 520, margin: "0 auto" }}
+            >
+              Fisioterapia pélvica, nutrição, coaching e medicina integrativa — a saúde da Mulher tratada por completo.
+            </p>
+          </motion.div>
         </div>
       </section>
 

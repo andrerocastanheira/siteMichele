@@ -42,6 +42,19 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{ background: "linear-gradient(to right, rgba(44,26,14,0.45) 0%, transparent 65%)" }}
         />
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 z-10 flex flex-col items-center gap-1.5"
+          style={{ translateX: "-50%" }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+        >
+          <span className="text-xs tracking-widest" style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "0.12em" }}>SCROLL</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </motion.div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center h-full">
           <motion.p
             {...fadeUpAnimate(0)}
@@ -89,6 +102,34 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Trust strip */}
+      <section style={{ background: "var(--color-dark)" }} className="py-10">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
+            {[
+              { valor: "12+", label: "Anos de experiência" },
+              { valor: "800+", label: "Pacientes acompanhadas" },
+              { valor: "100%", label: "Cuidado personalizado" },
+            ].map((m, i) => (
+              <motion.div key={i} {...fadeUp(i)}>
+                <p
+                  className="font-cormorant text-white mb-1"
+                  style={{ fontSize: "clamp(28px, 4vw, 44px)" }}
+                >
+                  {m.valor}
+                </p>
+                <p
+                  className="text-xs uppercase tracking-widest"
+                  style={{ color: "rgba(255,255,255,0.45)", letterSpacing: "0.1em" }}
+                >
+                  {m.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Section 2 — Apresentação */}
       <section style={{ background: "var(--color-bg)" }} className="py-24">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
@@ -126,13 +167,27 @@ export default function HomePage() {
             </Link>
           </motion.div>
           <motion.div {...fadeUp(1)}>
-            <Image
-              src="/images/doutora-coluna.png"
-              alt="Dra. Michele Carvalho Colchete"
-              width={480}
-              height={600}
-              className="object-cover rounded-2xl w-full"
-            />
+            <div
+              className="relative w-full rounded-2xl overflow-hidden"
+              style={{
+                aspectRatio: "4/5",
+                maxHeight: 520,
+                boxShadow: "0 32px 80px rgba(44,26,14,0.18)",
+              }}
+            >
+              <Image
+                src="/images/doutora-coluna.png"
+                alt="Dra. Michele Carvalho Colchete"
+                fill
+                priority
+                className="object-cover object-top"
+              />
+              {/* Gold accent line */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1"
+                style={{ background: "var(--color-gold)" }}
+              />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -175,8 +230,12 @@ export default function HomePage() {
               <motion.div
                 key={card.title}
                 {...fadeUp(index)}
-                className="bg-white rounded-2xl p-8 border hover:shadow-lg transition-shadow"
-                style={{ borderColor: "var(--color-border)" }}
+                whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
+                className="bg-white rounded-2xl p-8 border transition-shadow hover:shadow-xl cursor-pointer"
+                style={{
+                  borderColor: "var(--color-border)",
+                  boxShadow: "0 4px 24px rgba(44,26,14,0.07)",
+                }}
               >
                 <div className="mb-4">{card.icon}</div>
                 <h3
@@ -194,7 +253,7 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
                 icon: <Sun size={32} style={{ color: "var(--color-gold)" }} />,
@@ -210,8 +269,12 @@ export default function HomePage() {
               <motion.div
                 key={card.title}
                 {...fadeUp(index + 3)}
-                className="bg-white rounded-2xl p-8 border hover:shadow-lg transition-shadow"
-                style={{ borderColor: "var(--color-border)" }}
+                whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
+                className="bg-white rounded-2xl p-8 border transition-shadow hover:shadow-xl cursor-pointer"
+                style={{
+                  borderColor: "var(--color-border)",
+                  boxShadow: "0 4px 24px rgba(44,26,14,0.07)",
+                }}
               >
                 <div className="mb-4">{card.icon}</div>
                 <h3
@@ -269,10 +332,12 @@ export default function HomePage() {
                 <motion.div
                   key={servico.id ?? i}
                   {...fadeUp(i)}
-                  className="rounded-2xl p-8 border"
+                  whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
+                  className="rounded-2xl p-8 border transition-shadow hover:shadow-xl cursor-pointer"
                   style={{
                     background: "var(--color-surface)",
                     borderColor: "var(--color-border)",
+                    boxShadow: "0 4px 24px rgba(44,26,14,0.06)",
                   }}
                 >
                   <div className="mb-4">{icons[i]}</div>
@@ -382,27 +447,42 @@ export default function HomePage() {
               <motion.div
                 key={t.nome ?? i}
                 {...fadeUp(i)}
-                className="bg-white rounded-2xl p-8 border"
-                style={{ borderColor: "var(--color-border)" }}
+                whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
+                className="bg-white rounded-2xl p-8 border flex flex-col transition-shadow hover:shadow-xl"
+                style={{
+                  borderColor: "var(--color-border)",
+                  boxShadow: "0 4px 28px rgba(44,26,14,0.07)",
+                }}
               >
-                <div
-                  className="font-cormorant leading-none mb-2 text-6xl"
-                  style={{ color: "var(--color-gold)" }}
-                >
-                  ❝
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(5)].map((_, s) => (
+                    <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ color: "var(--color-gold)" }}>
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
                 </div>
+                {/* Quote */}
                 <p
-                  className="font-cormorant italic text-lg leading-relaxed mb-6"
+                  className="font-cormorant italic text-lg leading-relaxed mb-6 flex-1"
                   style={{ color: "var(--color-dark)" }}
                 >
-                  {t.texto}
+                  &ldquo;{t.texto}&rdquo;
                 </p>
-                <div
-                  className="text-sm"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  <span className="font-semibold">{t.nome}</span>
-                  {t.condicao ? ` — ${t.condicao}` : ""}
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid var(--color-border)" }}>
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-semibold shrink-0"
+                    style={{ background: "var(--color-primary)" }}
+                  >
+                    {t.nome.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold" style={{ color: "var(--color-dark)" }}>{t.nome}</p>
+                    {t.condicao && (
+                      <p className="text-xs" style={{ color: "var(--color-muted)" }}>{t.condicao}</p>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -416,6 +496,7 @@ export default function HomePage() {
           src="/images/textura-linho.svg"
           alt="Textura de fundo"
           fill
+          loading="lazy"
           className="object-cover"
         />
         <div

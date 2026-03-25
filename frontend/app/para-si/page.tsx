@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { paraSi } from "@/lib/data";
@@ -54,13 +53,22 @@ export default function ParaSiPage() {
                   {...fadeUp(0)}
                   className={isEven ? "order-first" : "order-first lg:order-last"}
                 >
-                  <Image
-                    src={item.imagem}
-                    alt={item.titulo}
-                    width={560}
-                    height={420}
-                    className="object-cover rounded-2xl w-full"
-                  />
+                  <div
+                    className="relative w-full rounded-2xl overflow-hidden"
+                    style={{
+                      aspectRatio: "4/3",
+                      boxShadow: "0 16px 48px rgba(44,26,14,0.12)",
+                    }}
+                  >
+                    <Image
+                      src={item.imagem}
+                      alt={item.titulo}
+                      fill
+                      priority={index === 0}
+                      loading={index === 0 ? undefined : "lazy"}
+                      className="object-cover"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* Text */}
@@ -110,14 +118,16 @@ export default function ParaSiPage() {
                     </ul>
                   )}
 
-                  <Link
-                    href="/agendamento"
+                  <a
+                    href="https://wa.me/351965589127"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
                     style={{ background: "var(--color-primary)" }}
                   >
                     Marcar Consulta
                     <ArrowRight size={16} />
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </div>

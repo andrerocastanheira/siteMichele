@@ -177,7 +177,7 @@ export default function ContactosPage() {
                 }}
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24154.29497843498!2d-9.139337!3d38.716666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a3a1dbe249%3A0xcef9e09e67ef3128!2sLisboa!5e0!3m2!1spt!2spt!4v1234567890"
+                  src="https://maps.google.com/maps?q=Rua+Arrabalde+da+Ponte,+163,+2415-372+Leiria,+Portugal&output=embed"
                   width="100%"
                   height="400"
                   style={{ borderRadius: 16, border: 0 }}

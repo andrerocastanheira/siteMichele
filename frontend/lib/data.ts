@@ -136,7 +136,7 @@ export const paraSi: ParaSi[] = [
     id: "adolescencia",
     titulo: "Na Adolescência",
     subtitulo: "Um início consciente para uma saúde feminina plena",
-    imagem: "/images/adolescencia.svg",
+    imagem: "/images/adolescencia.jpg",
     descricao:
       "A adolescência marca o início da vida hormonal da mulher. Acompanhar esta fase com atenção e cuidado é o primeiro passo para uma saúde pélvica e emocional sólida ao longo de toda a vida.",
     sintomas: [
@@ -151,7 +151,7 @@ export const paraSi: ParaSi[] = [
     id: "gravidez",
     titulo: "Na Gravidez",
     subtitulo: "Cuide de si e do seu bebé desde o início",
-    imagem: "/images/gravida-clinica.svg",
+    imagem: "/images/gravidez.png",
     descricao:
       "A gravidez traz alterações profundas no corpo da mulher. A fisioterapia pélvica acompanha-a em cada trimestre, prevenindo dores e preparando o corpo para um parto mais tranquilo.",
     sintomas: [
@@ -166,7 +166,7 @@ export const paraSi: ParaSi[] = [
     id: "pos-parto",
     titulo: "No Pós-Parto",
     subtitulo: "Recupere o seu corpo com segurança e confiança",
-    imagem: "/images/pos-parto.svg",
+    imagem: "/images/pos-parto.jpg",
     descricao:
       "O período pós-parto exige atenção e cuidado. A recuperação do pavimento pélvico e da musculatura abdominal é essencial para o bem-estar a longo prazo.",
     sintomas: [
@@ -181,7 +181,7 @@ export const paraSi: ParaSi[] = [
     id: "menopausa",
     titulo: "Na Menopausa",
     subtitulo: "Viva esta fase com bem-estar e qualidade de vida",
-    imagem: "/images/menopausa.svg",
+    imagem: "/images/menopausa.png",
     descricao:
       "As alterações hormonais da menopausa afetam o pavimento pélvico. A fisioterapia especializada ajuda a manter a qualidade de vida e a independência.",
     sintomas: [
@@ -196,7 +196,7 @@ export const paraSi: ParaSi[] = [
     id: "dor-disfuncao",
     titulo: "Dor e Disfunção Pélvica",
     subtitulo: "Não precisa de viver com dor",
-    imagem: "/images/dor-pelvica.svg",
+    imagem: "/images/dor-pelvica.png",
     descricao:
       "A dor pélvica crónica e as disfunções do pavimento pélvico têm tratamento. Com a abordagem certa, é possível recuperar a qualidade de vida e o bem-estar.",
     sintomas: [
@@ -287,12 +287,12 @@ export const metricas = [
 // ─── Contacto ────────────────────────────────────────────────────────────────
 
 export const contacto = {
-  telefone: "+351 912 345 678",
-  email: "geral@woman-instituto.pt",
-  morada: "Rua do Bem-Estar, 12 – 1º Dto, Lisboa",
+  telefone: "+351 965 589 127",
+  email: "geral@institutowoman.pt",
+  morada: "Rua Arrabalde da Ponte, 163\n2415-372 Leiria",
   horario: "Segunda–Sexta: 09:00–19:00 | Sábado: 09:00–13:00",
-  whatsapp: "351912345678",
-  cidade: "Lisboa",
+  whatsapp: "351965589127",
+  cidade: "Leiria",
 };
 
 // ─── Form data ───────────────────────────────────────────────────────────────

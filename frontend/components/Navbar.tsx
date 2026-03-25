@@ -61,26 +61,35 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-7">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{
-                color: isSolid
-                  ? pathname === link.href
-                    ? "var(--color-primary)"
-                    : "var(--color-dark)"
-                  : pathname === link.href
-                    ? "var(--color-gold-light)"
-                    : "rgba(255,255,255,0.9)",
-                fontFamily: "DM Sans, sans-serif",
-                fontSize: 13,
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            const activeColor = isSolid ? "var(--color-primary)" : "var(--color-gold-light)";
+            return (
+              <motion.div key={link.href} className="relative">
+                <Link
+                  href={link.href}
+                  className="text-sm font-medium transition-colors duration-200"
+                  style={{
+                    color: isSolid
+                      ? isActive ? "var(--color-primary)" : "var(--color-dark)"
+                      : isActive ? "var(--color-gold-light)" : "rgba(255,255,255,0.9)",
+                    fontFamily: "DM Sans, sans-serif",
+                    fontSize: 13,
+                  }}
+                >
+                  {link.label}
+                </Link>
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-px"
+                  style={{ background: activeColor }}
+                  initial={{ width: isActive ? "100%" : "0%" }}
+                  animate={{ width: isActive ? "100%" : "0%" }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.2 }}
+                />
+              </motion.div>
+            );
+          })}
         </nav>
 
         {/* CTA */}

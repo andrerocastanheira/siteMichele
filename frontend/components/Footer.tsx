@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { contacto } from "@/lib/data";
@@ -40,9 +42,19 @@ export default function Footer() {
               <a
                 key={rede.id}
                 href="#"
-                className="w-9 h-9 rounded-full flex items-center justify-center border transition-all hover:border-gold"
+                className="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200"
                 style={{ borderColor: "rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.55)" }}
                 aria-label={rede.label}
+                onMouseEnter={e => {
+                  const el = e.currentTarget;
+                  el.style.borderColor = "var(--color-gold)";
+                  el.style.color = "white";
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget;
+                  el.style.borderColor = "rgba(255,255,255,0.2)";
+                  el.style.color = "rgba(255,255,255,0.55)";
+                }}
               >
                 {rede.id === "instagram" ? (
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -74,12 +86,14 @@ export default function Footer() {
               { href: "/sobre", label: "Sobre a Dra. Michele" },
               { href: "/servicos", label: "Serviços" },
               { href: "/para-si", label: "Para Si" },
-              { href: "/agendamento", label: "Marcar Consulta" },
+              { href: "https://wa.me/351965589127", label: "Marcar Consulta", external: true },
               { href: "/contactos", label: "Contactos" },
             ].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 className="text-sm transition-colors hover:text-white"
                 style={{ color: "rgba(255,255,255,0.55)", fontFamily: "DM Sans, sans-serif" }}
               >

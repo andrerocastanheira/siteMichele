@@ -62,7 +62,7 @@ export default function AgendamentoPage() {
   }
 
   return (
-    <>
+    <main>
       {/* Hero */}
       <section
         className="text-center"
@@ -95,6 +95,14 @@ export default function AgendamentoPage() {
       {/* Form */}
       <section className="py-16" style={{ background: "var(--color-bg)" }}>
         <div className="max-w-xl mx-auto px-6">
+          <div
+            className="bg-white rounded-2xl border"
+            style={{
+              borderColor: "var(--color-border)",
+              boxShadow: "0 8px 48px rgba(44,26,14,0.10)",
+              padding: "clamp(24px, 5vw, 48px)",
+            }}
+          >
           {success ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -269,8 +277,9 @@ export default function AgendamentoPage() {
               </form>
             </motion.div>
           )}
+          </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
