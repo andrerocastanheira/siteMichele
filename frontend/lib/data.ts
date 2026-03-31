@@ -244,39 +244,37 @@ export const testemunhos: Testemunho[] = [
 
 // ─── Credenciais ──────────────────────────────────────────────────────────────
 
-export interface Credencial {
-  titulo: string;
-  instituicao: string;
-  ano: string;
-}
-
-export const credenciais: Credencial[] = [
-  {
-    titulo: "Licenciatura em Fisioterapia",
-    instituicao: "Escola Superior de Saúde",
-    ano: "2008",
-  },
-  {
-    titulo: "Pós-Graduação em Fisioterapia Pélvica e Obstétrica",
-    instituicao: "Instituto Português de Fisioterapia Pélvica",
-    ano: "2011",
-  },
-  {
-    titulo: "Formação Avançada em Disfunção Sexual Feminina",
-    instituicao: "European Urogynecological Association",
-    ano: "2014",
-  },
-  {
-    titulo: "Certificação em Terapia Miofascial",
-    instituicao: "Instituto de Terapia Manual",
-    ano: "2016",
-  },
-  {
-    titulo: "Membro da Secção de Uroginecologia – APA",
-    instituicao: "Associação Portuguesa de Fisioterapia",
-    ano: "2012–presente",
-  },
+export const especialidades = [
+  "Fisioterapia Pélvica e Uroginecológica",
+  "Reabilitação do Pavimento Pélvico — gravidez, pós-parto e menopausa",
+  "Disfunções Sexuais, Urinárias e Dor Pélvica Crónica",
 ];
+
+export const formacoes: string[] = [
+  "Licenciatura em Fisioterapia",
+  "Especialista em Fisioterapia Pélvica",
+  "Capacitação Internacional em Avaliação e Tratamento das Disfunções Sexuais",
+  "Formação em Disfunções Urinárias e Anorectais",
+  "Curso de Atuação em Prolapso de Órgãos e uso de Pesários",
+  "Formação Completa em Libertação Miofascial e Terapia Manual do Pavimento Pélvico com ênfase em Dores Genitais e Pélvicas",
+  "Curso de Avaliação Funcional do Pavimento Pélvico com Anatomia Palpatória",
+  "Curso Completo de Preparação para a Maternidade, Parto e Pós-Parto",
+  "Formação Completa em Doula",
+  "Capacitação no Método Neopompoarismo e Tantra para Fisioterapeutas Pélvicas",
+  "Fisioterapia Aplicada ao Treino dos Músculos do Pavimento Pélvico Feminino",
+  "Libertação Miofascial por Terapia Manual e Instrumentalizada no Tratamento das Dores Genitais Multigéneros e Avaliação Funcional do Assoalho Pélvico / Anatomia 3D",
+  "Curso de Libertação Visceral",
+  "Curso de Reabilitação Perineal Ativa (RPA)",
+  "Método ROD — Reestruturação e Organização da Diástase (Janaina Cintas)",
+  "Curso Integrado de Fisioterapia na Saúde da Mulher",
+  "Pilates Classical Matwork — Nível 1 e 2",
+  "Facilitador de Ativação da Energia Kundalini",
+  "Conselheira em Aleitamento Materno — SOS Amamentação",
+  "Formação em Exercícios Hipopressivo Performance — Mirela Fontenelle",
+];
+
+/** @deprecated usar especialidades + formacoes */
+export const credenciais = [] as { titulo: string; instituicao: string; ano: string }[];
 
 export const metricas = [
   { valor: "+12", label: "Anos de Experiência" },

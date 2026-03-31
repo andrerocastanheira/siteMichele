@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
-import { credenciais, metricas } from "@/lib/data";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { especialidades, formacoes, metricas } from "@/lib/data";
 import { fadeUp, fadeUpAnimate } from "@/lib/animations";
 
 export default function SobrePage() {
+  const [cvAberto, setCvAberto] = useState(false);
+
   return (
     <main>
       {/* Hero section */}
@@ -45,7 +48,7 @@ export default function SobrePage() {
               tratada com o respeito que a sua saúde exige.»
             </p>
             <div className="flex flex-wrap gap-2">
-              {["CREFITO Certificada", "Membro APA", "12+ Anos Experiência"].map(
+              {["CREFITO Certificada", "Membro APA", "10+ Anos Experiência"].map(
                 (badge) => (
                   <span
                     key={badge}
@@ -118,58 +121,107 @@ export default function SobrePage() {
               className="font-cormorant text-4xl mb-6"
               style={{ color: "var(--color-dark)" }}
             >
-              Formação e filosofia de trabalho
+              Porquê a Saúde da Mulher
             </h2>
-            <div className="flex flex-col gap-4 mb-8">
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--color-muted)" }}
-              >
-                A Dra. Michele Carvalho Colchete licenciou-se em Fisioterapia e
-                rapidamente encontrou na Saúde Pélvica a sua verdadeira vocação. A
-                complexidade e a delicadeza desta área, aliadas ao impacto profundo
-                que tem na vida das mulheres, tornaram-na na especialidade de
-                eleição.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--color-muted)" }}
-              >
-                Com pós-graduação em Fisioterapia Pélvica e Obstétrica e formação
-                avançada em disfunções sexuais femininas, acumula mais de uma década
-                de experiência no acompanhamento de mulheres em todas as fases da
-                vida — da gravidez à menopausa.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "var(--color-muted)" }}
-              >
-                A sua filosofia baseia-se numa abordagem integrativa: tratar não
-                apenas o sintoma, mas compreender a mulher como um todo. Cada plano
-                de tratamento é desenhado de forma única, respeitando a história, o
-                corpo e os objetivos de cada paciente.
-              </p>
-            </div>
 
-            <ul className="flex flex-col gap-3">
-              {credenciais.map((cred, i) => (
+            {/* Resumo curto */}
+            <p
+              className="text-base leading-relaxed mb-4"
+              style={{ color: "var(--color-muted)", lineHeight: 1.8 }}
+            >
+              Sou Mulher, Esposa, Mãe e Fisioterapeuta. Há mais de 10 anos que
+              trabalho na Saúde da Mulher — acompanhando mulheres em cada fase
+              da vida, com especial foco nas questões que mais afetam o
+              bem-estar, a autoestima e a intimidade feminina.
+            </p>
+            <p
+              className="font-cormorant italic text-xl leading-relaxed mb-8"
+              style={{ color: "var(--color-primary)", lineHeight: 1.7 }}
+            >
+              Se sentes que algo não está bem, não tens de viver assim — há
+              caminho, há solução e há apoio para ti.
+            </p>
+
+            {/* 3 áreas de especialização */}
+            <ul className="flex flex-col gap-3 mb-10">
+              {especialidades.map((esp, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <CheckCircle
-                    size={16}
-                    className="mt-0.5 shrink-0"
-                    style={{ color: "var(--color-gold)" }}
+                  <span
+                    className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full"
+                    style={{ background: "var(--color-gold)" }}
                   />
                   <span
-                    className="text-sm"
-                    style={{ color: "var(--color-dark)" }}
+                    className="text-sm font-medium"
+                    style={{ color: "var(--color-dark)", lineHeight: 1.7 }}
                   >
-                    <strong>{cred.titulo}</strong>
-                    {cred.instituicao && ` — ${cred.instituicao}`}
-                    {cred.ano && `, ${cred.ano}`}
+                    {esp}
                   </span>
                 </li>
               ))}
             </ul>
+
+            {/* Acordeão — Currículo completo */}
+            <div
+              className="rounded-lg border overflow-hidden"
+              style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
+            >
+              {/* Trigger */}
+              <button
+                onClick={() => setCvAberto(!cvAberto)}
+                className="w-full flex items-center justify-between px-5 py-4 transition-colors hover:bg-[var(--color-surface-dark)]"
+                style={{ background: "var(--color-bg)" }}
+              >
+                <span
+                  className="text-sm font-medium"
+                  style={{ color: "var(--color-dark)", fontFamily: "DM Sans, sans-serif" }}
+                >
+                  {cvAberto ? "Ocultar currículo" : "Ver currículo completo"}
+                </span>
+                {cvAberto
+                  ? <ChevronUp size={16} style={{ color: "var(--color-primary)" }} />
+                  : <ChevronDown size={16} style={{ color: "var(--color-primary)" }} />
+                }
+              </button>
+
+              {/* Conteúdo expandido */}
+              <AnimatePresence initial={false}>
+                {cvAberto && (
+                  <motion.div
+                    key="cv-content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.28, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <div
+                      className="px-5 py-4 overflow-y-auto"
+                      style={{
+                        maxHeight: "clamp(250px, 40vh, 300px)",
+                        borderTop: "1px solid var(--color-border)",
+                      }}
+                    >
+                      <ul className="flex flex-col gap-2.5">
+                        {formacoes.map((f, i) => (
+                          <li key={i} className="flex gap-3 items-start">
+                            <span
+                              className="mt-1.5 shrink-0 w-1 h-1 rounded-full"
+                              style={{ background: "var(--color-gold)", opacity: 0.7 }}
+                            />
+                            <span
+                              className="text-xs leading-relaxed"
+                              style={{ color: "var(--color-muted)", lineHeight: 1.7, fontFamily: "DM Sans, sans-serif" }}
+                            >
+                              {f}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
         </div>
       </section>
