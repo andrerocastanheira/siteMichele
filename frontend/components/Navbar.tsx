@@ -29,8 +29,8 @@ export default function Navbar() {
 
   const isSolid = !isHomepage || scrolled;
 
-  const logoColor = isSolid ? "var(--color-dark)" : "white";
-  const logoSubColor = isSolid ? "var(--color-gold)" : "var(--color-gold-light)";
+  const logoColor = "var(--color-dark)";
+  const logoSubColor = "var(--color-gold)";
 
   return (
     <motion.header
@@ -63,16 +63,13 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-7">
           {links.map((link) => {
             const isActive = pathname === link.href;
-            const activeColor = isSolid ? "var(--color-primary)" : "var(--color-gold-light)";
             return (
               <motion.div key={link.href} className="relative">
                 <Link
                   href={link.href}
                   className="text-sm font-medium transition-colors duration-200"
                   style={{
-                    color: isSolid
-                      ? isActive ? "var(--color-primary)" : "var(--color-dark)"
-                      : isActive ? "var(--color-gold-light)" : "rgba(255,255,255,0.9)",
+                    color: isActive ? "var(--color-primary)" : "var(--color-dark)",
                     fontFamily: "DM Sans, sans-serif",
                     fontSize: 13,
                   }}
@@ -81,7 +78,7 @@ export default function Navbar() {
                 </Link>
                 <motion.span
                   className="absolute -bottom-1 left-0 h-px"
-                  style={{ background: activeColor }}
+                  style={{ background: "var(--color-primary)" }}
                   initial={{ width: isActive ? "100%" : "0%" }}
                   animate={{ width: isActive ? "100%" : "0%" }}
                   whileHover={{ width: "100%" }}
@@ -112,9 +109,9 @@ export default function Navbar() {
           aria-label="Menu de navegação"
         >
           {menuOpen ? (
-            <X size={22} color={isSolid ? "var(--color-dark)" : "white"} />
+            <X size={22} color="var(--color-dark)" />
           ) : (
-            <Menu size={22} color={isSolid ? "var(--color-dark)" : "white"} />
+            <Menu size={22} color="var(--color-dark)" />
           )}
         </button>
       </div>
