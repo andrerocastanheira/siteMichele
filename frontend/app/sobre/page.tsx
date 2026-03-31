@@ -48,7 +48,7 @@ export default function SobrePage() {
               tratada com o respeito que a sua saúde exige.»
             </p>
             <div className="flex flex-wrap gap-2">
-              {["CREFITO Certificada", "Membro APA", "10+ Anos Experiência"].map(
+              {["Membro APA", "10+ Anos Experiência"].map(
                 (badge) => (
                   <span
                     key={badge}
@@ -124,23 +124,57 @@ export default function SobrePage() {
               Porquê a Saúde da Mulher
             </h2>
 
-            {/* Resumo curto */}
-            <p
-              className="text-base leading-relaxed mb-4"
-              style={{ color: "var(--color-muted)", lineHeight: 1.8 }}
-            >
-              Sou Mulher, Esposa, Mãe e Fisioterapeuta. Há mais de 10 anos que
-              trabalho na Saúde da Mulher — acompanhando mulheres em cada fase
-              da vida, com especial foco nas questões que mais afetam o
-              bem-estar, a autoestima e a intimidade feminina.
-            </p>
-            <p
-              className="font-cormorant italic text-xl leading-relaxed mb-8"
-              style={{ color: "var(--color-primary)", lineHeight: 1.7 }}
-            >
-              Se sentes que algo não está bem, não tens de viver assim — há
-              caminho, há solução e há apoio para ti.
-            </p>
+            {/* Bio completa */}
+            <div className="flex flex-col gap-5 mb-8">
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Durante demasiado tempo, muitas mulheres aprenderam a viver em
+                silêncio com desconforto, dor e insegurança na sua intimidade.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                O meu propósito é mudar isso — cuidar da mulher para que viva com
+                mais saúde, confiança e qualidade de vida.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Sou Mulher, Esposa, Mãe e Fisioterapeuta, e foi também na minha
+                própria vivência do feminino que a minha ligação a esta área se
+                tornou ainda mais forte e significativa.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Há mais de 10 anos que trabalho na Saúde da Mulher, com especial
+                foco em questões que têm um impacto profundo no bem-estar e na
+                autoestima, como a dor na relação sexual, a incontinência urinária e
+                os desafios associados à menopausa — temas muitas vezes silenciados,
+                mas que merecem atenção, cuidado e acompanhamento especializado.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Ao longo do meu percurso, fui percebendo que cuidar da mulher vai
+                muito além das disfunções musculares. É saber escutar, acolher e
+                respeitar a história e o ritmo de cada mulher.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Sou também conselheira de amamentação, acompanhando mulheres de
+                forma próxima, consciente e informada, numa das fases mais intensas
+                e transformadoras da vida.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Acredito numa abordagem que integra o corpo, as emoções e as
+                experiências vividas, incluindo o impacto de possíveis traumas,
+                aliando a evidência científica a um cuidado verdadeiramente
+                humanizado.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "var(--color-muted)", lineHeight: 1.8 }}>
+                Trabalho todos os dias para que cada mulher se sinta mais segura no
+                seu corpo, mais esclarecida nas suas escolhas e mais confiante na
+                sua intimidade.
+              </p>
+              <p
+                className="font-cormorant italic text-xl leading-relaxed pt-2"
+                style={{ color: "var(--color-primary)", lineHeight: 1.7 }}
+              >
+                Se sentes que algo não está bem, não tens de viver assim — há
+                caminho, há solução e há apoio para ti.
+              </p>
+            </div>
 
             {/* 3 áreas de especialização */}
             <ul className="flex flex-col gap-3 mb-10">
