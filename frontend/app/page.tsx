@@ -47,7 +47,7 @@ export default function HomePage() {
           {/* Top fade for navbar legibility */}
           <div
             className="absolute top-0 left-0 right-0"
-            style={{ height: "22%", background: "linear-gradient(to bottom, rgba(250,247,244,0.75), transparent)" }}
+            style={{ height: "22%", background: "linear-gradient(to bottom, rgba(250,247,244,0.95), transparent)" }}
           />
         </div>
 
@@ -67,7 +67,7 @@ export default function HomePage() {
           {/* Top fade for navbar legibility */}
           <div
             className="absolute top-0 left-0 right-0"
-            style={{ height: "25%", background: "linear-gradient(to bottom, rgba(250,247,244,0.82), transparent)" }}
+            style={{ height: "25%", background: "linear-gradient(to bottom, rgba(250,247,244,0.95), transparent)" }}
           />
           {/* Bottom fade */}
           <div
