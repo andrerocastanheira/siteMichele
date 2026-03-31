@@ -52,8 +52,8 @@ export default function Navbar() {
             WOMAN
           </span>
           <span
-            className="text-xs font-light whitespace-nowrap"
-            style={{ fontSize: 11, color: logoSubColor, letterSpacing: "0.1em", fontFamily: "DM Sans, sans-serif", textShadow: "0 0 8px rgba(250,247,244,1), 0 0 16px rgba(250,247,244,0.9)" }}
+            className="text-xs whitespace-nowrap"
+            style={{ fontSize: 11, fontWeight: 700, color: logoSubColor, letterSpacing: "0.1em", fontFamily: "DM Sans, sans-serif", textShadow: "0 0 8px rgba(250,247,244,1), 0 0 16px rgba(250,247,244,0.9)" }}
           >
             INSTITUTO DE SAÚDE INTEGRATIVA
           </span>
