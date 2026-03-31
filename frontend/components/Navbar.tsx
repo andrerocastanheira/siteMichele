@@ -30,7 +30,7 @@ export default function Navbar() {
   const isSolid = !isHomepage || scrolled;
 
   const logoColor = "var(--color-dark)";
-  const logoSubColor = "var(--color-gold)";
+  const logoSubColor = "var(--color-primary)";
 
   return (
     <motion.header
