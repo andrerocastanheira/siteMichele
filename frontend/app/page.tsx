@@ -47,19 +47,22 @@ export default function HomePage() {
         </div>
 
         {/* Mobile: visible image strip */}
-        <div className="relative w-full md:hidden overflow-hidden" style={{ height: 300 }}>
+        <div
+          className="relative w-full md:hidden overflow-hidden"
+          style={{ height: "48vh", minHeight: 260, maxHeight: 400 }}
+        >
           <Image
             src="/images/hero-mulher-pelvis-linho.png"
             alt="Saúde pélvica feminina"
             fill
             priority
             className="object-cover"
-            style={{ objectPosition: "center 28%", filter: "sepia(18%) saturate(78%) brightness(1.04)" }}
+            style={{ objectPosition: "right 52%", filter: "sepia(18%) saturate(78%) brightness(1.04)" }}
           />
-          {/* Bottom fade into bg */}
+          {/* Thin bottom fade — just enough to soften the cut */}
           <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to bottom, transparent 50%, var(--color-bg) 100%)" }}
+            className="absolute bottom-0 left-0 right-0"
+            style={{ height: "18%", background: "linear-gradient(to bottom, transparent, var(--color-bg))" }}
           />
         </div>
 
