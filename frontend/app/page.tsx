@@ -44,6 +44,11 @@ export default function HomePage() {
                 "linear-gradient(to right, rgba(250,247,244,0.92) 0%, rgba(250,247,244,0.70) 38%, rgba(250,247,244,0.28) 62%, transparent 82%)",
             }}
           />
+          {/* Top fade for navbar legibility */}
+          <div
+            className="absolute top-0 left-0 right-0"
+            style={{ height: "22%", background: "linear-gradient(to bottom, rgba(250,247,244,0.75), transparent)" }}
+          />
         </div>
 
         {/* Mobile: visible image strip */}
@@ -59,7 +64,12 @@ export default function HomePage() {
             className="object-cover"
             style={{ objectPosition: "right 52%", filter: "sepia(18%) saturate(78%) brightness(1.04)" }}
           />
-          {/* Thin bottom fade — just enough to soften the cut */}
+          {/* Top fade for navbar legibility */}
+          <div
+            className="absolute top-0 left-0 right-0"
+            style={{ height: "25%", background: "linear-gradient(to bottom, rgba(250,247,244,0.82), transparent)" }}
+          />
+          {/* Bottom fade */}
           <div
             className="absolute bottom-0 left-0 right-0"
             style={{ height: "18%", background: "linear-gradient(to bottom, transparent, var(--color-bg))" }}

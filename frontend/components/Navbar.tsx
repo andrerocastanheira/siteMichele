@@ -30,7 +30,7 @@ export default function Navbar() {
   const isSolid = !isHomepage || scrolled;
 
   const logoColor = "var(--color-dark)";
-  const logoSubColor = "var(--color-dark)";
+  const logoSubColor = "var(--color-gold)";
 
   return (
     <motion.header
@@ -52,8 +52,8 @@ export default function Navbar() {
             WOMAN
           </span>
           <span
-            className="text-xs whitespace-nowrap"
-            style={{ fontSize: 11, fontWeight: 500, color: logoSubColor, letterSpacing: "0.1em", fontFamily: "DM Sans, sans-serif" }}
+            className="text-xs font-light whitespace-nowrap"
+            style={{ fontSize: 11, color: logoSubColor, letterSpacing: "0.1em", fontFamily: "DM Sans, sans-serif" }}
           >
             INSTITUTO DE SAÚDE INTEGRATIVA
           </span>
